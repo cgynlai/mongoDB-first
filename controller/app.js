@@ -59,3 +59,9 @@ app.post('/add-use-post', (req,res) => {
         }
     })
 })
+
+app.put('/update', (req,res) => {
+    Blog.findOneAndUpdate({title: 'new blog'}, {title: 'changed new blog'})
+    .then(result => res.send(result))
+    .catch(err => console.log(err))
+})
